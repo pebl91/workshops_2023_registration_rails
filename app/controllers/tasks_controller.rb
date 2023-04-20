@@ -30,6 +30,10 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :description)
+    params.require(:task).permit(:number, :title, :description)
+  end
+
+  def set_number
+    self.number = Task.maximum(:number).to_i + 1
   end
 end
