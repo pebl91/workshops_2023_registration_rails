@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
   validates :title, presence: true
+  validates :deadline, presence: true
   before_validation :set_number, on: :create
 
   def set_number

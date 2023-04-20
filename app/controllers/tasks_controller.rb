@@ -3,6 +3,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.all
+    @tasks = Task.order('deadline ASC')
   end
 
   def new
@@ -30,7 +31,7 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:number, :title, :description)
+    params.require(:task).permit(:number, :title, :description, :deadline)
   end
 
   def set_number
